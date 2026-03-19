@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // ViewModifier que presenta el prompt biométrico de iOS sin fallback a passcode.
-// Equivalente a BiometricPromptHandler.kt de Android.
 
 import SwiftUI
 import os
@@ -10,10 +9,6 @@ import LocalAuthentication
 
 /// ViewModifier que muestra el prompt biométrico (Face ID / Touch ID)
 /// cuando `isPresented` se vuelve `true`.
-///
-/// **Equivalencia Android:**
-/// - `BiometricPromptHandler` (Composable) → este `ViewModifier`
-/// - `BIOMETRIC_STRONG` sin device credential → `.deviceOwnerAuthenticationWithBiometrics`
 struct BiometricAuthHandler: ViewModifier {
 
     @Binding var isPresented: Bool
@@ -32,7 +27,6 @@ struct BiometricAuthHandler: ViewModifier {
     private func evaluateBiometry() {
         let context = LAContext()
         // deviceOwnerAuthenticationWithBiometrics — NO acepta passcode como fallback
-        // Equivalente a BIOMETRIC_STRONG sin setDeviceCredentialAllowed(false)
         context.localizedCancelTitle = "Cancelar"
 
         var error: NSError?

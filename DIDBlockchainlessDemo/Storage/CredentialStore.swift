@@ -1,9 +1,7 @@
 // CredentialStore.swift
 // DIDBlockchainlessDemo
 //
-// Persiste VCs cifradas en el Keychain (en vez de SharedPreferences en Android).
-// Equivalente a CredentialStore.kt de Android — pero con Keychain en lugar de
-// SharedPreferences, dando mayor seguridad nativa sin necesidad de cifrarlo de nuevo.
+// Persiste VCs cifradas en el Keychain.
 
 import Foundation
 import os
@@ -12,10 +10,9 @@ import LocalAuthentication
 /// Almacén de Verifiable Credentials cifradas.
 ///
 /// Persiste el payload ya cifrado (producido por `CryptoManager`) en el Keychain
-/// de iOS bajo el prefijo `vc_`. Esto equivale a `CredentialStore.kt` de Android
-/// que usa `SharedPreferences` (el cifrado ya viene de `CryptoManager`).
+/// de iOS bajo el prefijo `vc_`. 
 ///
-/// En iOS usamos Keychain directamente, que ofrece:
+/// eychain ofrece:
 /// - Cifrado AES nativo del sistema operativo
 /// - Aislamiento por app (`kSecAttrService`)
 /// - No migra a backups ni a iCloud (`kSecAttrAccessibleWhenUnlockedThisDeviceOnly`)

@@ -1,17 +1,14 @@
 // CredentialRepository.swift
 // DIDBlockchainlessDemo
 //
-// Orquesta las llamadas de red. Devuelve Result<T, Error> igual que Android.
-// Equivalente a CredentialRepository.kt de Android.
+// Orquesta las llamadas de red. Devuelve Result<T, Error>
 
 @preconcurrency import Foundation
 import os
 
 /// Repositorio que expone operaciones de red con `Result<T, Error>`.
 ///
-/// Cada método captura errores internamente y los retorna como `.failure`,
-/// manteniendo el mismo contrato que `CredentialRepository.kt` de Android
-/// que usa `runCatching { }.onFailure { }`.
+/// Cada método captura errores internamente y los retorna como `.failure`
 final class CredentialRepository: Sendable {
 
     private let client = APIClient.shared

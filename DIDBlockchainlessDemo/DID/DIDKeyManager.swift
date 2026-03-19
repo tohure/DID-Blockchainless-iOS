@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Gestiona el par de claves secp256k1 que define la identidad DID del dispositivo.
-// Equivalente a DIDKeyManager.kt de Android.
 //
 // Flujo:
 //   1. Genera par secp256k1 con P256K (swift-secp256k1 v0.22+) en RAM
@@ -30,7 +29,6 @@ actor DIDKeyManager {
     // MARK: - Constantes criptográficas
 
     /// Prefijo multicodec secp256k1-pub (varint 0xe7 0x01).
-    /// Idéntico a `SECP256K1_MULTICODEC` de Android.
     private let multicodecPrefix: [UInt8] = [0xe7, 0x01]
 
     // MARK: - Generación de claves
@@ -91,8 +89,6 @@ actor DIDKeyManager {
     // MARK: - Derivación DID
 
     /// Deriva el DID según el método did:key para secp256k1.
-    ///
-    /// Algoritmo idéntico a `DIDManager.getDID()` de Android:
     /// ```
     /// [0xe7, 0x01] + compressed_pub(33) → base58btc → "z" + encoded → "did:key:z..."
     /// ```
@@ -116,13 +112,10 @@ actor DIDKeyManager {
     // MARK: - Firma ES256K
 
     /// Firma `data` con ES256K (ECDSA secp256k1 / SHA-256).
-    ///
-    /// - Returns: Firma en formato R‖S (64 bytes, sin DER) — igual que Android.
     func sign(_ data: Data) async throws -> Data {
         var privBytes = try await loadPrivateKey()
         defer {
             // Limpiar clave privada de RAM en el bloque defer (seguro incluso ante throws).
-            // Equivalente a Arrays.fill(0) de Android.
             privBytes = Data(repeating: 0, count: privBytes.count)
         }
 
@@ -130,8 +123,7 @@ actor DIDKeyManager {
         let privateKey = try P256K.Signing.PrivateKey(dataRepresentation: privBytes, format: .compressed)
 
         // ECDSA con SHA-256 (ES256K según RFC 8812)
-        // signature(for: Digest) pasa Array(digest) directamente a secp256k1_ecdsa_sign
-        // sin hashing adicional — comportamiento idéntico a Android sha256() + generateSignature().
+        // signature(for: Digest) pasa Array(digest) directamente a secp256k1_ecdsa_sign sin hashing adicional
         // NO usar signature(for: Data): ese overload llama SHA256 internamente (doble hash).
         let signature = try privateKey.signature(for: SHA256.hash(data: data))
 

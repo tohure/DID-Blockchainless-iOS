@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // ViewModel para la pantalla DID — lógica completa de identidad descentralizada.
-// Equivalente a DidViewModel.kt de Android.
 
 import Foundation
 import Observation

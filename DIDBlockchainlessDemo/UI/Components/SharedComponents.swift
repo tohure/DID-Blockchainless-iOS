@@ -1,7 +1,7 @@
 // SharedComponents.swift
 // DIDBlockchainlessDemo
 //
-// Componentes SwiftUI reutilizables que replican los Composables compartidos de Android.
+// Componentes SwiftUI reutilizables.
 
 import SwiftUI
 

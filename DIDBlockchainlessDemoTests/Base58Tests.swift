@@ -1,8 +1,7 @@
 // Base58Tests.swift
 // DIDBlockchainlessDemoTests
 //
-// Tests unitarios para Base58 encoding — verifica que el resultado es idéntico
-// al algoritmo Android/Python para vectores de prueba conocidos.
+// Tests unitarios para Base58 encoding
 
 import Testing
 @testable import DIDBlockchainlessDemo

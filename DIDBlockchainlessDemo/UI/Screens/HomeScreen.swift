@@ -1,7 +1,7 @@
 // HomeScreen.swift
 // DIDBlockchainlessDemo
 //
-// Pantalla principal — equivalente a HomeScreen.kt de Android.
+// Pantalla principal
 
 import SwiftUI
 

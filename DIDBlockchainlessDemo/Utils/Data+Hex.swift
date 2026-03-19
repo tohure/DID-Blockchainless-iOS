@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Extensiones para codificación/decodificación hexadecimal.
-// Equivalente a la lógica hex manual de DIDKeyManager.kt de Android.
 
 import Foundation
 

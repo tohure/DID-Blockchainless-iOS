@@ -1,7 +1,7 @@
 // RSAScreen.swift
 // DIDBlockchainlessDemo
 //
-// Pantalla de cifrado AES-256-GCM. Equivalente a RsaScreen.kt de Android.
+// Pantalla de cifrado AES-256-GCM.
 
 import SwiftUI
 

@@ -15,8 +15,6 @@ enum CryptoConfig: Sendable {
     /// - En **dispositivo físico**: siempre `true` — Secure Enclave + Face ID/Touch ID.
     /// - En **Simulator**: `false` — sin Secure Enclave real; evita el prompt biométrico
     ///   simulado en cada operación de Keychain durante el desarrollo.
-    ///
-    /// Equivalente al flag `useBiometrics` de Android que se apaga para demos/testing.
     static func useBiometrics() -> Bool {
         #if targetEnvironment(simulator)
         return false   // Simulator: sin Secure Enclave real, sin biometría

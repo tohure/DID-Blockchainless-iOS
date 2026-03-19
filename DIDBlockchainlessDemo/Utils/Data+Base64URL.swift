@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Extensiones para Base64URL encoding/decoding (RFC 4648 §5, sin padding).
-// Equivalente a JwtExtensions.kt → ByteArray.toBase64Url() de Android.
 
 import Foundation
 

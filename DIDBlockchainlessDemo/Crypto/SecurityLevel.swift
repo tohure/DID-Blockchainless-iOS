@@ -1,8 +1,6 @@
 // SecurityLevel.swift
 // DIDBlockchainlessDemo
 //
-// Equivalente a SecurityLevel.kt de Android.
-
 /// Nivel de seguridad del almacenamiento de claves en el dispositivo.
 ///
 /// En iOS todos los dispositivos con iOS 17+ tienen Secure Enclave,

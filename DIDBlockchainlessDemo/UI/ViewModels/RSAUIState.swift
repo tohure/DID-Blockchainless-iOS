@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Estado inmutable de la pantalla RSA/Cifrado.
-// Equivalente a RsaUiState.kt de Android.
 
 import Foundation
 

@@ -1,9 +1,5 @@
 // KeychainHelper.swift
 // DIDBlockchainlessDemo
-//
-// Centraliza todas las operaciones con el Keychain de iOS.
-// Equivalente a KeystoreHelper.kt de Android —
-// maneja StrongBox/TEE fallback, niveles de seguridad y protección biométrica.
 
 import Foundation
 import os
@@ -14,10 +10,6 @@ import LocalAuthentication
 ///
 /// **Thread safety:** declarado como `actor` — todas las llamadas son serializadas
 /// automáticamente por el runtime de Swift Concurrency.
-///
-/// **Equivalencia Android:**
-/// - `KeystoreHelper.withBestSecurity()` → aquí se usa `kSecAccessControlBiometryCurrentSet`
-/// - `KeystoreHelper.buildKeyGenSpec(...)` → `buildAccessControl(withBiometric:)`
 actor KeychainHelper {
 
     // MARK: - Singleton
@@ -60,7 +52,6 @@ actor KeychainHelper {
                 kSecAttrAccessibleWhenUnlockedThisDeviceOnly,
                 // BiometryCurrentSet: Face ID / Touch ID, SIN PIN fallback
                 // Se invalida si se añade / elimina biometría
-                // Equivale a setInvalidatedByBiometricEnrollment(true) de Android
                 .biometryCurrentSet,
                 &error
             ) else {
@@ -188,11 +179,6 @@ actor KeychainHelper {
 // MARK: - KeychainError
 
 /// Errores tipados del Keychain.
-///
-/// **Equivalencia Android:**
-/// - `itemNotFound` → `null` en SharedPreferences
-/// - `authFailed` → `UserNotAuthenticatedException`
-/// - `biometryInvalidated` → `KeyPermanentlyInvalidatedException`
 enum KeychainError: Error, LocalizedError {
     case itemNotFound(String)
     case authFailed

@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Clase base @Observable para ViewModels que requieren autenticación biométrica.
-// Equivalente a BiometricAwareViewModel.kt de Android.
 
 import Foundation
 import Observation
@@ -10,9 +9,6 @@ import os
 import LocalAuthentication
 
 /// Protocolo que todo estado de UI biométrico debe cumplir.
-///
-/// Equivalente a las funciones abstractas `withLoading`, `withBiometricPrompt`,
-/// `withStatus` de `BiometricAwareViewModel.kt` de Android.
 protocol BiometricAwareState {
     var isLoading: Bool { get set }
     var showBiometricPrompt: Bool { get set }
@@ -28,11 +24,6 @@ protocol BiometricAwareState {
 ///   - `KeychainError.authFailed` → muestra prompt y guarda acción pendiente
 ///   - `KeychainError.biometryInvalidated` → avisa que las claves deben regenerarse
 /// - Re-ejecución automática de la acción pendiente tras autenticación exitosa
-///
-/// **Equivalencia Android:**
-/// - `protected var pendingAction` → `pendingAction`
-/// - `fun launch(block)` → `launch(_:)`
-/// - `onBiometricSuccess()` → `onBiometricSuccess()`
 @Observable
 @MainActor
 class BiometricAwareViewModel<State: BiometricAwareState> {
@@ -60,8 +51,6 @@ class BiometricAwareViewModel<State: BiometricAwareState> {
     /// - `KeychainError.authFailed` → muestra prompt biométrico
     /// - `KeychainError.biometryInvalidated` → mensaje de claves invalidadas
     /// - Otros errores → `statusMessage`
-    ///
-    /// Equivalente a `protected fun launch(block)` de Android.
     func launch(_ block: @Sendable @escaping () async throws -> Void) {
         state.isLoading = true
         Task { [weak self] in

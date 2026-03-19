@@ -1,7 +1,7 @@
 // DIDScreen.swift
 // DIDBlockchainlessDemo
 //
-// Pantalla de identidad DID. Replica la funcionalidad de DidScreen.kt de Android.
+// Pantalla de identidad DID.
 
 import SwiftUI
 

@@ -3,11 +3,6 @@
 //
 // Cifrado AES-256-GCM para Verifiable Credentials usando el Keychain como
 // almacén seguro de la clave simétrica.
-//
-// Equivalente a CryptoManager.kt de Android, pero simplificado:
-// En iOS el Keychain ya protege la clave simétrica a nivel de hardware
-// (Secure Enclave backed), por lo que no necesitamos el paso intermedio
-// de RSA que requería Android. El resultado es más elegante y igualmente seguro.
 
 import Foundation
 import os
@@ -30,7 +25,6 @@ import CryptoKit
 ///
 /// **Por qué solo AES y no RSA+AES como en Android:**
 /// En iOS el Keychain protege la clave AES a nivel de hardware (Secure Enclave).
-/// No necesitamos RSA como envoltorio adicional — la clave nunca sale del hardware.
 final class CryptoManager: Sendable {
 
     // MARK: - Claves de Keychain

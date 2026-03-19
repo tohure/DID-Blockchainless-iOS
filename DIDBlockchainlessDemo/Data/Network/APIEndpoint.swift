@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Definición tipada de todos los endpoints del backend.
-// Equivalente a la interfaz CredentialApi.kt de Android (Retrofit).
 
 import Foundation
 

@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // ViewModel para la pantalla de cifrado AES-256-GCM.
-// Equivalente a RsaViewModel.kt de Android.
 
 import Foundation
 import Observation

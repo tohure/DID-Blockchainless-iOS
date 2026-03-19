@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Grafo de navegación con NavigationStack.
-// Equivalente a AppNavigation.kt de Android.
 
 import SwiftUI
 
@@ -13,9 +12,6 @@ enum AppRoute: Hashable {
 }
 
 /// Contenedor de navegación principal.
-///
-/// Equivale a `navController + NavHost` de Android con destinos
-/// `HomeScreen`, `DidScreen` y `RsaScreen`.
 struct AppNavigation: View {
     @State private var path = NavigationPath()
 

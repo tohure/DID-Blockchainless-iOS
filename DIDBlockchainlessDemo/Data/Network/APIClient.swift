@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Cliente HTTP centralizado con async/await y URLSession.
-// Equivalente a NetworkClient.kt (OkHttp + Retrofit) de Android.
 
 import Foundation
 import os
@@ -10,11 +9,6 @@ import os
 /// Actor que gestiona todas las solicitudes HTTP al backend.
 ///
 /// **Thread safety:** `actor` garantiza acceso serializado a la sesión y configuración.
-///
-/// **Equivalencia Android:**
-/// - `OkHttpClient` → `URLSession` con `URLSessionConfiguration`
-/// - `Retrofit` → `APIEndpoint.urlRequest()` + `URLSession.data(for:)`
-/// - `HttpLoggingInterceptor` → log condicional `#if DEBUG`
 actor APIClient {
 
     // MARK: - Singleton

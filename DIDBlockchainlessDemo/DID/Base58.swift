@@ -2,7 +2,6 @@
 // DIDBlockchainlessDemo
 //
 // Codificador Base58btc con el alfabeto Bitcoin.
-// Equivalente exacto a Base58.kt de Android — mismo algoritmo, mismo alfabeto.
 
 import Foundation
 
@@ -19,7 +18,6 @@ enum Base58: Sendable {
         Array("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
 
     /// Codifica `input` en Base58btc.
-    /// Implementación por división sucesiva identica a la de Android / Python.
     nonisolated static func encode(_ input: Data) -> String {
         let bytes = Array(input)
 
