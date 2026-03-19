@@ -1,0 +1,19 @@
+// Release.xcconfig
+// DIDBlockchainlessDemo
+//
+// Configuración de entorno para builds de RELEASE / distribución.
+#include "Secrets.xcconfig"
+
+// Reexportación hacia el Info.plist autogenerado por Xcode
+INFOPLIST_KEY_BASE_URL = $(BASE_URL)
+
+PRODUCT_BUNDLE_IDENTIFIER = dev.tohure.DIDBlockchainlessDemo
+
+MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 1
+
+SWIFT_STRICT_CONCURRENCY = complete
+
+// Optimización de Release
+GCC_OPTIMIZATION_LEVEL = s
+SWIFT_OPTIMIZATION_LEVEL = -O

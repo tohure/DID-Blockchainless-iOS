@@ -1,0 +1,23 @@
+// Debug.xcconfig
+// DIDBlockchainlessDemo
+//
+// Configuración de entorno para builds de DEBUG.
+// IMPORTANTE: No añadir este archivo a control de versiones si contiene URLs privadas.
+// Añadir Debug.xcconfig a .gitignore y usar Debug.xcconfig.example como plantilla.
+
+// URL base del backend (sin barra final — la app la añade internamente)
+#include "Secrets.xcconfig"
+
+// Reexportación hacia el Info.plist autogenerado por Xcode
+// Sin esta línea, BASE_URL existe como build setting pero no en Bundle.main.infoDictionary
+INFOPLIST_KEY_BASE_URL = $(BASE_URL)
+
+// Identificador del bundle
+PRODUCT_BUNDLE_IDENTIFIER = dev.tohure.DIDBlockchainlessDemo
+
+// Versiones
+MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 1
+
+// Swift strict concurrency
+SWIFT_STRICT_CONCURRENCY = complete
