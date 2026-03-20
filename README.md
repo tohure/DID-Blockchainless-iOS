@@ -3,9 +3,6 @@
 App iOS nativa (SwiftUI) que implementa generación de identidades descentralizadas (DID)
 con gestión segura de claves y Verifiable Credentials, sin blockchain.
 
-Porta del [proyecto Android original](../README.md) a iOS, manteniendo la misma
-arquitectura por capas y los mismos flujos criptográficos.
-
 ---
 
 ## Requisitos
@@ -218,7 +215,7 @@ xcodebuild test \
 ```
 
 Cubren:
-- `Base58Tests` — encoding con vectores conocidos equivalentes a Python/Android
+- `Base58Tests` — encoding con vectores conocidos
 - `DataExtensionTests` — roundtrip Base64URL (RFC 4648 §5) y hex encoding
 - `JWTStructureTests` — estructura de header/payload JWT
 
